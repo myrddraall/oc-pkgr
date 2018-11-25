@@ -26,6 +26,13 @@ package.loaded["oc-pkgr-tmp/OCPkgrFileDownloadUtil"] = nil;
 local dl = require("oc-pkgr-tmp/OCPkgrFileDownloadUtil");
 dl.downloadInstallDependancies(packageData);
 
+require("import");
+
+local OCPkgr = import("oc-pkgr/OCPkgr");
+
+local pkgMan = OCPkgr:new();
+
+
 --[[
 
     local os = require("os");
