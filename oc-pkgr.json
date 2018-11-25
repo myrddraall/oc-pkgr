@@ -3,6 +3,16 @@
     "version": "0.0.1",
     "githubrepo": "myrddraall/oc-pkgr",
     "description": "",
+    "installDependancies":{
+        "/usr/lib/json.lua": "https://raw.githubusercontent.com/myrddraall/oc-lib/master/lib/json.lua",
+        "/usr/lib/oc-pkgr/OCPkgr.lua": "https://raw.githubusercontent.com/myrddraall/oc-pkgr/master/install/lib/oc-pkgr/OCPkgr.lua"
+    },
+    "installFiles": {
+        "___import.lua": "https://raw.githubusercontent.com/myrddraall/oc-pkgr/master/installerFiles/import.lua",
+        "install.lua": "https://raw.githubusercontent.com/myrddraall/oc-pkgr/master/installerFiles/install.lua",
+        "lib/oop/Class.lua": "https://raw.githubusercontent.com/myrddraall/oc-oop/master/installerFiles/install.lua",
+        "lib/oop/middleclass.lua": "https://raw.githubusercontent.com/myrddraall/oc-oop/master/installerFiles/install.lua"
+    },
     "dependancies": {
         "files": {
             "https://raw.githubusercontent.com/rater193/OpenComputers-1.7.10-Base-Monitor/master/lib/json.lua": "/lib/json.lua"

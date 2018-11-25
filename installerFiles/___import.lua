@@ -13,9 +13,7 @@ local function import(module)
     else
       imported = require(module)
     end
-    if importDevMode.enabled then
-      package.loaded[module] = nil
-    end
+    package.loaded[module] = nil
     return imported
   end
 
