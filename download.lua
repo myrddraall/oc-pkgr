@@ -27,11 +27,17 @@ local dl = require("oc-pkgr-tmp/OCPkgrFileDownloadUtil");
 dl.downloadInstallDependancies(packageData);
 
 require("import");
+import.clearCache();
 
-local OCPkgr = import("oc-pkgr/OCPkgr");
+shell.execute('cp "./install/lib/oc-pkgr/OCPkgr.lua" "/usr/lib/oc-pkgr-tmp/OCPkgr.lua"');
+
+local OCPkgr = import("oc-pkgr-tmp/OCPkgr");
 
 local pkgMan = OCPkgr:new();
 
+
+
+pkgMan:installPackageManager(packageData, "/usr");
 
 --[[
 

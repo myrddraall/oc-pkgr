@@ -1,5 +1,10 @@
 local fs = require("filesystem");
-local json = require("json");
+local json;
+if import then
+    json = import("json");
+else
+    json = require("json");
+end
 local OCPkgrPackageParser = {};
 
 
@@ -17,5 +22,8 @@ OCPkgrPackageParser.parse = function(fileName)
     end
 
 end
+
+
+
 
 return OCPkgrPackageParser;
