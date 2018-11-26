@@ -88,7 +88,7 @@ function OCPkgr:_doInstall(dest)
         end
         print("");
     end
-
+    shell.execute("rm -r /usr/oc-pkgr/tmp/packages/");
 end
 
 function OCPkgr:discoverPackages(githubPath, version)

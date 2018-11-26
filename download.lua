@@ -32,11 +32,11 @@ dl.downloadInstallDependancies(packageData);
 require("import");
 import.clearCache();
 
---shell.execute('cp "../oc-git/lib/git.lua" "/usr/lib/git.lua"');
---shell.execute('cp "./install/lib/oc-pkgr/OCPkgr.lua" "/usr/lib/oc-pkgr-tmp/OCPkgr.lua"');
 package.loaded["oc-pkgr-tmp/OCPkgr"] = nil;
 local OCPkgr = import("oc-pkgr-tmp/OCPkgr");
-
+package.loaded["oc-pkgr-tmp/OCPkgr"] = nil;
 local pkgMan = OCPkgr:new();
 
 pkgMan:installPackageManager(packageData, "/usr");
+
+shell.execute("rm -r /usr/lib/oc-pkgr-tmp");
