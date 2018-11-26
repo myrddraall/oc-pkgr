@@ -15,6 +15,8 @@ shell.execute('wget -f "https://raw.githubusercontent.com/myrddraall/oc-pkgr/mas
 shell.execute('wget -f "https://raw.githubusercontent.com/myrddraall/oc-pkgr/master/install/lib/oc-pkgr/OCPkgrFileDownloadUtil.lua" "/usr/lib/oc-pkgr-tmp/OCPkgrFileDownloadUtil.lua"');
 --shell.execute('cp "./install/lib/oc-pkgr/OCPkgrFileDownloadUtil.lua" "/usr/lib/oc-pkgr-tmp/OCPkgrFileDownloadUtil.lua"');
 
+shell.execute('wget -f "https://raw.githubusercontent.com/myrddraall/oc-pkgr/master/install/lib/oc-pkgr/OCPkgr.lua" "/usr/lib/oc-pkgr-tmp/OCPkgr.lua"');
+
 shell.execute('wget -f "https://raw.githubusercontent.com/myrddraall/oc-pkgr/master/oc-pkgr.json" "/tmp/oc-pkgr.json"');
 --shell.execute('cp "./oc-pkgr.json" "/tmp/oc-pkgr.json"');
 

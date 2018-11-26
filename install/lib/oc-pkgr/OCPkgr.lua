@@ -27,7 +27,7 @@ function OCPkgr:installPackageManager(packageDataOrPath, dest);
     self.packagesDiscovered = {};
     self.filesDiscovered = {};
     local pkg = self:_pkg(packageDataOrPath);
-    self:discoverPackages(pkg.name, pkg.version);
+    self:discoverPackages(pkg.githubrepo, pkg.version);
 --[[
 
     
