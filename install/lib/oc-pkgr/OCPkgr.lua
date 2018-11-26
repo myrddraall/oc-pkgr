@@ -1,11 +1,16 @@
 local OCPkgrPackageParser = import("./OCPkgrPackageParser");
 local GithubRepo = import("git");
-local Class = import("oop/Class");
 
+local shell = require("shell");
+
+local fs = require("filesystem");
+local Class = import("oop/Class");
+local semver = import("semver");
 
 local OCPkgr = Class("OCPkgr");
 function OCPkgr:initialize()
-    self.packagesLoaded = {};
+    self.packagesDiscovered = {};
+
 end
 
 function OCPkgr:_pkg(packageDataOrPath)
@@ -27,10 +32,44 @@ function OCPkgr:installPackageManager(packageDataOrPath, dest);
 end
 
 
-function installPackage(githubPath, version, dest)
-    if not self.packagesLoaded[githubPath] then
+function OCPkgr:installPackage(githubPath, version, dest)
+    version = version or "";
+    dest = dest or 'usr';
 
+    local repo = GithubRepo:new(githubPath);
+    repo:findVersion(version);
+--[[
+
+    local pkgPath = "https://raw.githubusercontent.com/" .. githubPath .."/master/oc-pkgr.json";
+    if version ~= "" then
+        pkgPath = "https://raw.githubusercontent.com/" .. githubPath .."/" .. version .. "/oc-pkgr.json";
     end
+    
+    
+    local fname = githubPath:gsub("/", "-")
+    local targetPath = '/tmp/' .. fname ..  '-oc-pkgr.tmp.json';
+    shell.execute('wget -f "' .. pkgPath .. '" "' .. targetPath .. '"');
+    
+    
+    if not fs.exists(targetPath) then 
+        print("could not get package file for " .. githubPath .. " #" .. (version or 'master'));
+    else 
+        local parsed, result = pcall(OCPkgrPackageParser.parse, targetPath);
+        if not parsed then
+            print("could not get package file for " .. githubPath .. " #" .. (version or 'master'));
+        else
+            print(result.name);
+            
+            
+        end
+        
+    end
+    
+    
+    if not self.packagesLoaded[githubPath] then
+        
+    end
+    ]]
 end
 
 return OCPkgr;

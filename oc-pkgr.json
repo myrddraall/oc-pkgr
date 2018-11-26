@@ -8,6 +8,7 @@
         "/usr/lib/import.lua": "https://raw.githubusercontent.com/myrddraall/oc-import/master/lib/import.lua",
         "/usr/lib/oop/middleclass.lua": "https://raw.githubusercontent.com/myrddraall/oc-oop/master/usr/lib/oop/middleclass.lua",
         "/usr/lib/oop/Class.lua": "https://raw.githubusercontent.com/myrddraall/oc-oop/master/usr/lib/oop/Class.lua",
+        "/usr/lib/semver.lua": "https://raw.githubusercontent.com/kikito/semver.lua/master/semver.lua",
         "/usr/lib/git.lua": "https://raw.githubusercontent.com/myrddraall/oc-git/master/lib/git.lua",
         "/usr/lib/oc-pkgr/OCPkgr.lua": "https://raw.githubusercontent.com/myrddraall/oc-pkgr/master/install/lib/oc-pkgr/OCPkgr.lua"
     },
