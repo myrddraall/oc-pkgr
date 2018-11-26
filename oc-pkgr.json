@@ -1,6 +1,6 @@
 {
     "name": "oc-pkgr",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "githubrepo": "myrddraall/oc-pkgr",
     "description": "",
     "installDependancies":{

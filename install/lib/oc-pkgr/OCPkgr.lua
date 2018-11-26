@@ -26,21 +26,25 @@ end
 function OCPkgr:installPackageManager(packageDataOrPath, dest);
     self.packagesDiscovered = {};
     self.filesDiscovered = {};
-
     local pkg = self:_pkg(packageDataOrPath);
-    print("installing oc-pkgr...");
+    self:discoverPackages(pkg.name, pkg.version);
+--[[
 
+    
+    print("installing oc-pkgr...");
+    
     if pkg.fileDependancies then
         for k, v in pairs(pkg.fileDependancies) do
             self.filesDiscovered[k] = v;
         end
     end
-
+    
     if pkg.packageDependancies then
         for k, v in pairs(pkg.packageDependancies) do
             self:discoverPackages(k, v);
         end
     end
+    ]]
     self:_doInstall(dest);
 end
 
