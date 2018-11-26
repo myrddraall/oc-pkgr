@@ -37,6 +37,8 @@ local OCPkgr = import("oc-pkgr-tmp/OCPkgr");
 package.loaded["oc-pkgr-tmp/OCPkgr"] = nil;
 local pkgMan = OCPkgr:new();
 
-pkgMan:installPackageManager(packageData, "/usr");
+pkgMan:installPackageManager(packageData);
 
 shell.execute("rm -r /usr/lib/oc-pkgr-tmp");
+
+os.reboot();

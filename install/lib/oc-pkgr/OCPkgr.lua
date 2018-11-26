@@ -23,33 +23,18 @@ function OCPkgr:_pkg(packageDataOrPath)
     end
 end
 
-function OCPkgr:installPackageManager(packageDataOrPath, dest);
+function OCPkgr:installPackageManager(packageDataOrPath, libPath, dest);
+    dest = dest or "";
+    libPath = libPath or '/usr';
     self.packagesDiscovered = {};
     self.filesDiscovered = {};
     local pkg = self:_pkg(packageDataOrPath);
     self:discoverPackages(pkg.githubrepo, pkg.version);
---[[
-
-    
-    print("installing oc-pkgr...");
-    
-    if pkg.fileDependancies then
-        for k, v in pairs(pkg.fileDependancies) do
-            self.filesDiscovered[k] = v;
-        end
-    end
-    
-    if pkg.packageDependancies then
-        for k, v in pairs(pkg.packageDependancies) do
-            self:discoverPackages(k, v);
-        end
-    end
-    ]]
-    self:_doInstall(dest);
+    self:_doInstall(dest, libPath);
 end
 
-function OCPkgr:_doInstall(dest)
-
+function OCPkgr:_doInstall(dest, libPath)
+    
     for d, s in pairs(self.filesDiscovered) do
         shell.execute('wget -f "' .. s .. '" "' .. d .. '"');
     end
@@ -70,8 +55,9 @@ function OCPkgr:_doInstall(dest)
                 if d:sub(1,1) == '/' then 
                     copyTo = d;
                 else 
-                    copyTo = dest .. '/' .. d;
+                    copyTo = libPath .. '/' .. d;
                 end
+                copyTo = dest .. copyTo;
 
                 local toPath = fs.path(copyTo);
                 local toName = fs.name(copyTo);
