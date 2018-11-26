@@ -74,7 +74,7 @@ function OCPkgr:_doInstall(dest, libPath)
 
                 fs.makeDirectory(toPath);
 
-                local cpCmd = 'cp -r -f ' .. copyFrom ..' ' .. copyTo;
+                local cpCmd = 'copy -r -f ' .. copyFrom ..' ' .. copyTo;
                 print(cpCmd);
                 shell.execute(cpCmd);
             end

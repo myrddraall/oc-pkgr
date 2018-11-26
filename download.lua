@@ -19,7 +19,7 @@ shell.execute('wget -f "https://raw.githubusercontent.com/myrddraall/oc-pkgr/mas
 
 shell.execute('wget -f "https://raw.githubusercontent.com/myrddraall/oc-pkgr/master/oc-pkgr.json" "/tmp/oc-pkgr.json"');
 --shell.execute('cp "./oc-pkgr.json" "/tmp/oc-pkgr.json"');
-
+shell.execute('wget -f "https://raw.githubusercontent.com/myrddraall/oc-lib/master/bin/copy.lua" "/usr/bin/copy.lua"');
 
 package.loaded["oc-pkgr-tmp/OCPkgrPackageParser"] = nil;
 local parser = require("oc-pkgr-tmp/OCPkgrPackageParser");

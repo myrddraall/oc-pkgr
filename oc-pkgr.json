@@ -1,6 +1,6 @@
 {
     "name": "oc-pkgr",
-    "version": "0.0.7",
+    "version": "1.0.0",
     "githubrepo": "myrddraall/oc-pkgr",
     "description": "",
     "installDependancies":{
@@ -16,7 +16,7 @@
     },
     "packageDependancies":{
         "myrddraall/oc-git": "^1.0.4",
-        "myrddraall/oc-lib": "^0.0.4"
+        "myrddraall/oc-lib": "^1.0.0"
     },
     "install": {
         "lib/oc-pkgr/": "install/lib/oc-pkgr/*",
