@@ -33,6 +33,13 @@ function OCPkgr:installPackageManager(packageDataOrPath, libPath, dest);
     self:_doInstall(dest, libPath);
 end
 
+function OCPkgr:installPackage(package, version, libPath, dest);
+    self.packagesDiscovered = {};
+    self.filesDiscovered = {};
+    self:discoverPackages(package, version);
+    self:_doInstall(dest, libPath);
+end
+
 function OCPkgr:_doInstall(dest, libPath)
     
     for d, s in pairs(self.filesDiscovered) do
@@ -76,6 +83,20 @@ function OCPkgr:_doInstall(dest, libPath)
     end
     shell.execute("rm -r /usr/oc-pkgr/tmp/packages/");
 end
+
+function OCPkgr:getPackageInfo(githubPath, version)
+    print(githubPath, version)
+    local repo = GithubRepo:new(githubPath);
+    local versionInfo = repo:findVersion(version);
+    local s, pkgFile = pcall(repo.getFile, repo, versionInfo.sha, "oc-pkgr.json");
+    if s then
+        return pkgFile;
+    else 
+        return "Could not find " .. githubPath .. "@" .. version .. '\n' .. pkgFile;
+    end
+
+end
+
 
 function OCPkgr:discoverPackages(githubPath, version)
     local repo = GithubRepo:new(githubPath);

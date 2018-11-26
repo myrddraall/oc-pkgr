@@ -41,4 +41,5 @@ pkgMan:installPackageManager(packageData);
 
 shell.execute("rm -r /usr/lib/oc-pkgr-tmp");
 
-os.reboot();
+os.sleep(2);
+shell.execute('reboot');
